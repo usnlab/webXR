@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL 1</title>
+
+    <style>
+        canvas {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <script id="vertex-data" type="not-javascript">
+    </script>
+
+    <script id="fragment-data" type="not-javascript"></script>
+
+    <script id="vertex-source" type="not-javascript">
+        attribute vec4 vertex_points; 
+        void main(){
+            gl_Position = vertex_points; 
+        }
+    </script>
+
+    <script id="fragment-source" type="not-javascript">
+        precision mediump float; 
+        void main(){
+            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); 
+        }
+    </script>
+
+</body>
+
+    <script type-"text/javascript">
+        const canvas = document.querySelector("#canvas");
+        const gl = canvas.getContext('webgl'); 
+
+        if (!gl){
+            console.log('WebGL unavailable'); 
+        } else {
+            console.log('WebGL is good to go'); 
+        }
+
+        gl.clearColor(1,0,0,1); 
+        gl.clear(gl.COLOR_BUFFER_BIT); 
+    </script>
+</html>
